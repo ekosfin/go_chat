@@ -112,7 +112,7 @@ func (s *server) listRooms(c *client) {
 		rooms = append(rooms, name)
 	}
 
-	c.msg(fmt.Sprintf("available rooms: %s", strings.Join(rooms, ", ")))
+	c.msg(fmt.Sprintf("available rooms: %s", strings.Join(rooms, " ")))
 }
 
 //Function for listing all users online
@@ -122,7 +122,7 @@ func (s *server) online(c *client) {
 		users = append(users, user.nick)
 	}
 
-	c.msg(fmt.Sprintf("Connected users: %s", strings.Join(users, ", ")))
+	c.msg(fmt.Sprintf("Connected users: %s", strings.Join(users, " ")))
 }
 
 //Function for broadcasting a message to current room
@@ -151,7 +151,14 @@ func (s *server) pmsg(c *client, args []string) {
 
 //Function for telling the commands of the server
 func (s *server) help(c *client) {
-	c.msg(fmt.Sprintf("The commands this server supports are /nick [new nickname] for setting a new nickname /join [room name] for joining or switching rooms /rooms for listing all rooms active /msg [message] for messaging the current room /quit for quitting the server"))
+	c.msg("The commands this server supports are:")
+	c.msg("/nick [new nickname] for setting a new nickname")
+	c.msg("/join [room name] for joining or switching rooms")
+	c.msg("/rooms for listing all rooms active")
+	c.msg("/online for listing all active users")
+	c.msg("/msg [message] for messaging the current room")
+	c.msg("/private [user] [message] for privatle messaging a user")
+	c.msg("/quit for quitting the server")
 }
 
 //Function for quitting the server

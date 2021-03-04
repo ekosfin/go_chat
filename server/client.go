@@ -65,7 +65,7 @@ func (c *client) readInput() {
 			}
 		case "/help":
 			c.commands <- command{
-				id:     CMDQuit,
+				id:     CMDHelp,
 				client: c,
 			}
 		case "/quit":
