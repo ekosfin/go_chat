@@ -7,7 +7,9 @@ const (
 	CMDNick commandID = iota
 	CMDJoin
 	CMDRooms
+	CMDOnline
 	CMDMsg
+	CMDPmsg
 	CMDHelp
 	CMDQuit
 )

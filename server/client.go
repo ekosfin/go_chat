@@ -46,9 +46,20 @@ func (c *client) readInput() {
 				id:     CMDRooms,
 				client: c,
 			}
+		case "/online":
+			c.commands <- command{
+				id:     CMDOnline,
+				client: c,
+			}
 		case "/msg":
 			c.commands <- command{
 				id:     CMDMsg,
+				client: c,
+				args:   args,
+			}
+		case "/private":
+			c.commands <- command{
+				id:     CMDPmsg,
 				client: c,
 				args:   args,
 			}

@@ -5,14 +5,20 @@ import (
 	"net"
 )
 
+//Server port settings
+const (
+	PORT = "8888"
+	TYPE = "tcp"
+)
+
 func main() {
 
 	//Creates the servet that processes the requests
 	s := newServer()
 	go s.run()
 
-	//Starts to listen to the tcp port
-	listener, err := net.Listen("tcp", ":8888")
+	//Starts to listening on the specified port
+	listener, err := net.Listen(TYPE, ":"+PORT)
 	if err != nil {
 		log.Fatalf("unable to start server: %s", err.Error())
 	}
